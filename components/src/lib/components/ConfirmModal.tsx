@@ -23,8 +23,13 @@ const ConfirmModal = ({
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} closeByEscapeKey={false} $zIndex={$zIndex}>
-      <Modal.Backdrop closeByBackdrop={false} />
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
+      closeByEscapeKey={false}
+      $zIndex={$zIndex}
+      closeByBackdrop={false}
+    >
       <Modal.Container size={size}>
         <Modal.Title title={title} />
         <Modal.Description description={description} />

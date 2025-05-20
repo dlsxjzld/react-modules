@@ -40,10 +40,15 @@ export type ModalProps = {
    * @default true
    */
   closeByEscapeKey?: boolean;
+
+  /**
+   * If true, the modal will be closed by click Backdrop
+   */
+  closeByBackdrop?: boolean;
 } & ComponentProps<'div'>;
 
 export const Modal = (props: ModalProps) => {
-  const { isOpen, onClose, children, closeByEscapeKey = true } = props;
+  const { isOpen, onClose, children, closeByEscapeKey = true, closeByBackdrop = true } = props;
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
@@ -63,12 +68,14 @@ export const Modal = (props: ModalProps) => {
 
   return (
     <ModalContext.Provider value={props}>
-      <Portal isOpen={isOpen}>{children}</Portal>
+      <Portal isOpen={isOpen}>
+        <ModalBackdrop closeByBackdrop={closeByBackdrop} />
+        {children}
+      </Portal>
     </ModalContext.Provider>
   );
 };
 
-Modal.Backdrop = ModalBackdrop;
 Modal.Container = ModalContainer;
 Modal.Title = ModalTitle;
 Modal.Description = ModalDescription;

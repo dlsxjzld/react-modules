@@ -20,10 +20,10 @@ useModal 훅과 Modal 컴포넌트를 함께 사용하면 간편하게 모달 �
 - onClose: 모달 닫기 시 호출되는 함수
 - $zIndex: 모달의 기본 z-index, modalBackdrop = 1000, modalContainer = 1001 (`number`)
 - closeByEscapeKey: 모달 Esc 키 닫기 여부(`boolean`)
+- closeByBackdrop: 모달의 백드롭 클릭 닫기 여부(`boolean`)
 
 ```tsx
 // 현재 사용 가능한 컴포넌트
-Modal.Backdrop = ModalBackdrop;
 Modal.Container = ModalContainer;
 Modal.Title = ModalTitle;
 Modal.Description = ModalDescription;
@@ -43,7 +43,6 @@ function App() {
     <>
       <button onClick={handleOpenModal}>기본 모달 버튼</button>
       <Modal isOpen={isOpen} onClose={handleCloseModal}>
-        <Modal.Backdrop />
         <Modal.Container>
           <Modal.Title title="모달 제목" />
           <Modal.CloseButton />

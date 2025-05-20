@@ -28,7 +28,6 @@ const ModalStory = (args: Story['args']) => {
     <div>
       <button onClick={handleOpenModal}>기본 모달 버튼</button>
       <Modal {...args} isOpen={isOpen} onClose={handleCloseModal}>
-        <Modal.Backdrop />
         <Modal.Container>
           <Modal.Title title="모달 제목" />
           <Modal.CloseButton />
